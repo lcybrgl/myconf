@@ -1,0 +1,25 @@
+# ~/.bashrc
+
+export BROWSER=/usr/bin/firefox
+export EDITOR=/usr/bin/vim
+export HISTFILESIZE=-1
+export HISTSIZE=-1
+export LS_OPTIONS='--color=auto'
+eval "`dircolors`"
+
+#for root
+#PS1='\[\e[1;31m\]\u:\[\e[m\] \[\e[1;34m\]\W\[\e[m\] \[\e[1;34m\]\$ \[\e[m\]\[\e[0;37m\]'
+#for user
+PS1='\[\033[01;32m\]\u@\h:\[\e[m\] \[\e[1;34m\]\W\[\e[m\]\[\e[1;34m\] \$\[\e[m\] '
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias ll='ls $LS_OPTIONS -l'
+alias l='ls $LS_OPTIONS -lA'
+alias free='clear && free -m'
+alias updt='sudo pacman -Suy'
+alias pacrm='sudo pacman -Rns $(pacman -Qdtq)'
+alias dmnt='sudo mount.vboxsf windrive_d $HOME/windrive_d/'
+alias emnt='sudo mount.vboxsf windrive_e $HOME/windrive_e/'

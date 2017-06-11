@@ -1,0 +1,24 @@
+# Changing timezones for Debian/Astra
+#
+# First download tzdata.tar.gz from http://iana.org
+wget http://www.iana.org/time-zones/repository/releases/tzdata(some date).tar.gz
+
+# Unpack this package
+tar -xzvf tzdata.tar.gz
+
+# Next command will generate /usr/share/zoneinfo dirs with new files
+cd tzdata/ && zic europe
+
+# And finaly run dpkg-reconfigure tzdata to change /etc/locatime file
+dpkg-reconfigure tzdata
+or
+cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+
+# After the zoneinfo files are updated, you may need to restart daemons
+# and other long-running programs to get them to use the new zone information.
+# Examples of such programs include apache, bind, cron, fetchmail -d, inetd, mailman,
+# sendmail, and sysklogd. A common symptom of this problem is seeing incorrect
+# timestamps mixed in with the correct timestamps in your log files (e.g. /var/log/syslog).
+# Even interactive programs like "mutt" may continue to use the old timezone
+# information until they are restarted.
+

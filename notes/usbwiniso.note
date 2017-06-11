@@ -1,0 +1,4 @@
+Create a ntfs partition
+Make it bootable
+Write boot sector (ms-sys)
+Copy files from iso to partition

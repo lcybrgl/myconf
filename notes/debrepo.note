@@ -1,0 +1,64 @@
+######
+### There are 4 steps to setting up a simple repository for yourself
+
+1.Install dpkg-dev
+2.Put the packages in a directory
+3.Create a script that will scan the packages and create a file apt-get update can read
+4. Add a line to your sources.list pointing at your repository
+####
+
+### Install dpkg-dev
+
+-- Type in a terminal
+
+sudo apt-get install dpkg-dev
+
+### The Directory
+
+-- Create a directory where you will keep your packages. For this example, we'll use /usr/local/mydebs.
+
+sudo mkdir -p /usr/local/mydebs
+
+-- Now move your packages into the directory you've just created.
+
+-- Previously downloaded Packages are generally stored on your system in the /var/cache/apt/archives directory. If you have installed apt-cacher you will have additional packages stored in its /packages directory.
+
+### The Script update-mydebs
+
+-- It's a simple three liner:
+
+#!/bin/bash
+cd /usr/local/mydebs
+dpkg-scanpackages . /dev/null | gzip -9c > Packages.gz
+#Cut and paste the above into gedit, and save it as update-mydebs in ~/bin. (the tilde '~' means your home directory. If ~/bin does not exist, create it: Ubuntu will put that directory in your PATH. It's a good place to put personal scripts). Next, make the script executable:
+
+chmod u+x ~/bin/update-mydebs
+
+-- How the script works:
+-- dpkg-scanpackages looks at all the packages in mydebs, and the output is compressed and written to a file (Packages.gz) that apt-get update can read (see below for a reference that explains this in excruciating detail). /dev/null is an empty file; it is a substitute for an override file which holds some additional information about the packages, which in this case is not really needed. See deb-override(5) if you want to know about it.
+
+### Sources.list
+
+-- add the line
+
+deb file:/usr/local/mydebs ./
+
+-- to your /etc/apt/sources.list, and you're done.
+
+### CD Option
+
+-- You can burn the directory containing the debs to a CD and use that as a repository as well (good for sharing between computers). To use the CD as a repository, simply run
+
+sudo apt-cdrom add
+
+### Using the Repository
+
+-- Whenever you put a new deb in the mydebs directory, run
+
+sudo update-mydebs
+sudo apt-get update
+
+-- Now your local packages can be manipulated with Synaptic, aptitude and the apt commands: apt-get, apt-cache, etc. When you attempt to apt-get install, any dependencies will be resolved for you, as long as they can be met.
+
+-- Badly made packages will probably fail, but you won't have endured dpkg hell.
+
