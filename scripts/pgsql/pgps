@@ -1,0 +1,16 @@
+#!/bin/bash
+
+clear
+echo "
+Master DB Server
+#######################################"
+#ssh s-db1-ald ps -Ao user,ppid,pid,pcpu,args | grep '^postgres'
+ssh s-db1-ald ps f -U postgres | grep -Ev 'bpd_owner|bpd_reader'
+echo "
+Slave DB Server
+#######################################"
+#ssh s-db2-ald ps -Ao user,ppid,pid,pcpu,args | grep '^postgres'
+ssh s-db2-ald ps f -U postgres | grep -Ev 'bpd_owner|bpd_reader|postgres '
+echo ""
+exit 0
+

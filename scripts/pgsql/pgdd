@@ -1,0 +1,42 @@
+#!/bin/bash
+
+if [ $# != 1 ]
+then
+    echo "Wrong number of arguments!"
+    echo "Usage: $0 dbname "
+    exit 1
+fi
+
+dbname=$1
+psql -U postgres -c "\l" | grep "$dbname " 1> /dev/null
+if [ $? != 0 ]
+then
+    echo "No such database!"
+    exit 1
+fi
+
+if [ -f /gip/postgres_dumps/$dbname-`date +%Y%m%d`.dump ]
+then
+    echo "Dump already taken, exiting..."
+    exit 1
+else
+    echo "
+    Dumping database \"$dbname\" to /gip/postgres_dumps/$dbname-`date +%Y%m%d`.dump...
+    "
+    pg_dump -U postgres -Fc $dbname -f /gip/postgres_dumps/$dbname-`date +%Y%m%d`.dump &> /gip/postgres_dumps/$dbname-`date +%Y%m%d`.log
+    if [ $? != 0 ]
+    then
+        echo "Dump failed!"
+        echo "Check /gip/postgres_dumps/$dbname-`date +%Y%m%d`.log or /var/log/pglog!"
+        exit 1
+    fi
+    echo "###################################################################
+
+   Successfuly created dump for $dbname!
+   Dump log is in /gip/postgres_dumps/$dbname-`date +%Y%m%d`.log
+
+###################################################################
+"
+fi
+
+exit 0

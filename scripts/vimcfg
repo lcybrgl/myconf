@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+sudo git clone https://github.com/powerline/fonts.git ~/powerline --depth=1
+sudo rsync -av ~/powerline/* /usr/share/fonts/
+sudo chown root:root /usr/share/fonts
+fc-cache -rv

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $# != 1 ]
+then
+        echo -e "
+Script for Backing up Postgres Data dir.
+Usage: $0 (start|-s)
+"
+        exit 1
+fi
+
+case $1 in
+    start|-s)
+        echo "Startig PG Base Backup"
+        psql -U postgres -c "SELECT pg_start_backup('label', true)" > sql.log
+        sleep 2
+        rsync -a /gip/postgres/* s-db2-ald:/gip/postgres/ --exclude postmaster.pid --progress 2>&1 | tee rsync.log
+        sleep 2
+        psql -U postgres -c "SELECT pg_stop_backup()" >> sql.log
+        ;;
+    *)
+        echo "Exiting..."
+        exit 0
+        ;;
+esac
+
