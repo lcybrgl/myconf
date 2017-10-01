@@ -41,7 +41,7 @@ case $1 in
     ;;
 "vim" )
     echo "Installing vim-plugins..."
-    rsync -ar vim/bundle /home/cybrg/.vim/ --delete
+    rsync -ar vim/bundle /home/cybrg/.vim/
     ;;
 "dfiles" )
     echo "Installing dotfiles..."
