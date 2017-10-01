@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 set -e
-
 function show_usage()
 {
     echo -e "\nUsage: install.sh [PARAMETER]...\nScript for installing my default dotfiles\nAnd Powerline fonts\n"
     echo -e "vim\t--Install vim-plugins"
     echo -e "dfiles\t--Install config files"
     echo -e "fonts\t--Install fonts"
+    echo -e "all\t--Install vim-plugins, dotfiles and fonts"
     echo ""
     exit 1
 }
@@ -17,12 +17,10 @@ function syncf()
     do
         if [ -f ~/.$i ]
         then
-            echo "copy $i"
             cp -a ~/.$i ~/.$i.bak
-            rsync dotfiles/$i ~/.$i
+            rsync dotfiles/$i ~/.$i 1>/dev/null
         else
-            echo "sync $i"
-            rsync dotfiles/$i ~/.$i
+            rsync dotfiles/$i ~/.$i 1>/dev/null
         fi
     done
 }
@@ -39,13 +37,22 @@ case $1 in
 "fonts" )
     echo "Installing fonts..."
     sudo rsync -arv fonts/* /usr/share/fonts/
-    sudo fc-cache -fv
+    sudo fc-cache -f
     ;;
 "vim" )
     echo "Installing vim-plugins..."
-    rsync -arv vim/bundle /home/cybrg/.vim/ --delete
+    rsync -ar vim/bundle /home/cybrg/.vim/ --delete
     ;;
 "dfiles" )
+    echo "Installing dotfiles..."
+    syncf bashrc vimrc screenrc Xresources
+    ;;
+"all" )
+    echo "Installing fonts..."
+    sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
+    sudo fc-cache -f 1>/dev/null
+    echo "Installing vim-plugins..."
+    rsync -arv vim/bundle /home/cybrg/.vim/ --delete 1>/dev/null
     echo "Installing dotfiles..."
     syncf bashrc vimrc screenrc Xresources
     ;;
