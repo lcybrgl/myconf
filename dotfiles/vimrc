@@ -1,33 +1,21 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'rhysd/vim-color-spring-night'
-call vundle#end()
+set rtp+=~/.vim/bundle/vim-colorschemes
+set rtp+=~/.vim/bundle/vim-airline
+set rtp+=~/.vim/bundle/vim-airline-themes
+set rtp+=~/.vim/bundle/nerdtree
+set rtp+=~/.vim/bundle/vim-surround
+set rtp+=~/.vim/bundle/vim-repeat
 
-set t_Co=256
-set background=light
-
-"colorscheme termschool
 colorscheme PaperColor
 syntax on
 filetype indent on
 filetype plugin on
 let mapleader = "'"
 let g:mapleader = "'"
-
-""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""
 " Set some mappings here
-""""""""""""""""""""""""""""""""
-
+" """"""""""""""""""""""""""""""""
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -49,13 +37,16 @@ map <leader>bb :bnext!<cr>
 map <leader>bB :bprev!<cr>
 
 " Russian input support
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
-highlight NonText ctermbg=none
+"set keymap=russian-jcukenwin
+"set iminsert=0
+"set imsearch=0
+"highlight lCursor guifg=NONE guibg=Cyan
+"highlight NonText ctermbg=none
 """"
+set t_Co=256
+set background=light
 set autoread
+set shortmess=I
 set wildmenu
 set showcmd
 set laststatus=2
@@ -97,6 +88,6 @@ if &term =~ '256color'
 " render properly when inside 256-color tmux and GNU screen.
 " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
-endif
+  endif
 
-au VimLeave * :!clear
+  au VimLeave * :!clear
