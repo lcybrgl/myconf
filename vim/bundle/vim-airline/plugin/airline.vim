@@ -57,7 +57,6 @@ endfunction
 function! s:on_colorscheme_changed()
   call s:init()
   unlet! g:airline#highlighter#normal_fg_hi
-  call airline#highlighter#reset_hlcache()
   let g:airline_gui_mode = airline#init#gui_mode()
   if !s:theme_in_vimrc
     call airline#switch_matching_theme()
@@ -81,7 +80,6 @@ function! s:airline_toggle()
     if exists("s:stl")
       let &stl = s:stl
     endif
-    call airline#highlighter#reset_hlcache()
 
     silent doautocmd User AirlineToggledOff
   else
@@ -142,7 +140,6 @@ function! s:airline_refresh()
     let nomodeline = '<nomodeline>'
   endif
   exe printf("silent doautocmd %s User AirlineBeforeRefresh", nomodeline)
-  call airline#highlighter#reset_hlcache()
   call airline#load_theme()
   call airline#update_statusline()
 endfunction

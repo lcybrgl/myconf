@@ -11,14 +11,11 @@ endif
 " that implements its own insert/normal mode so we have to handle changing the
 " highlight
 function! airline#extensions#denite#check_denite_mode(bufnr)
-  if &filetype != 'denite'
-    return ''
-  endif
-  let mode = split(denite#get_status_mode(), ' ')
-  let mode = tolower(mode[1])
-  if !exists('b:denite_mode_cache') || mode != b:denite_mode_cache
-    call airline#highlighter#highlight([mode], a:bufnr)
-    let b:denite_mode_cache = mode
+  let l:mode = split(denite#get_status_mode(), ' ')
+  let l:mode = tolower(l:mode[1])
+  if !exists('b:denite_mode_cache') || l:mode != b:denite_mode_cache
+    call airline#highlighter#highlight([l:mode], a:bufnr)
+    let b:denite_mode_cache = l:mode
   endif
   return ''
 endfunction
@@ -38,5 +35,13 @@ endfunction
 function! airline#extensions#denite#init(ext)
   call denite#custom#option('_', 'statusline', 0)
   call a:ext.add_statusline_func('airline#extensions#denite#apply')
+
+  " airline#extensions#denite#apply normally gets called only after the
+  " denite window gets closed, so we have to call airline#update_statusline
+  " ourselves to make sure it's applied when the window is opened.
+  augroup airline_denite
+    autocmd!
+    autocmd FileType denite call airline#update_statusline()
+  augroup END
 endfunction
 

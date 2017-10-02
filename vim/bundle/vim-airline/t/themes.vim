@@ -5,7 +5,6 @@ describe 'themes'
   end
 
   it 'should extract correct colors'
-    call airline#highlighter#reset_hlcache()
     highlight Foo ctermfg=1 ctermbg=2
     let colors = airline#themes#get_highlight('Foo')
     Expect colors[2] == '1'
@@ -13,7 +12,6 @@ describe 'themes'
   end
 
   it 'should extract from normal if colors unavailable'
-    call airline#highlighter#reset_hlcache()
     highlight Normal ctermfg=100 ctermbg=200
     highlight Foo ctermbg=2
     let colors = airline#themes#get_highlight('Foo')
@@ -22,7 +20,6 @@ describe 'themes'
   end
 
   it 'should flip target group if it is reversed'
-    call airline#highlighter#reset_hlcache()
     highlight Foo ctermbg=222 ctermfg=103 term=reverse
     let colors = airline#themes#get_highlight('Foo')
     Expect colors[2] == '222'
@@ -30,8 +27,6 @@ describe 'themes'
   end
 
   it 'should pass args through correctly'
-    call airline#highlighter#reset_hlcache()
-    hi clear Normal
     let hl = airline#themes#get_highlight('Foo', 'bold', 'italic')
     Expect hl == ['', '', 'NONE', 'NONE', 'bold,italic']
 
