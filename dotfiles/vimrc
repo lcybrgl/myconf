@@ -37,11 +37,11 @@ map <leader>bb :bnext!<cr>
 map <leader>bB :bprev!<cr>
 
 " Russian input support
-"set keymap=russian-jcukenwin
-"set iminsert=0
-"set imsearch=0
-"highlight lCursor guifg=NONE guibg=Cyan
-"highlight NonText ctermbg=none
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+highlight NonText ctermbg=none
 """"
 set t_Co=256
 set background=light
