@@ -41,7 +41,7 @@ case $1 in
     ;;
 "vim" )
     echo "Installing vim-plugins..."
-    rsync -ar vim/bundle /home/cybrg/.vim/
+    rsync -ar vim/bundle ~/.vim/
     ;;
 "dfiles" )
     echo "Installing dotfiles..."
@@ -52,7 +52,7 @@ case $1 in
     sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
     sudo fc-cache -f 1>/dev/null
     echo "Installing vim-plugins..."
-    rsync -arv vim/bundle /home/cybrg/.vim/ --delete 1>/dev/null
+    rsync -arv vim/bundle ~/.vim/ --delete 1>/dev/null
     echo "Installing dotfiles..."
     syncf bashrc vimrc screenrc Xresources
     ;;
