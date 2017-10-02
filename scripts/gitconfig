@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
+set -e
+function show_usage()
+{
+    echo -e "\nUsage: gitconfig username email\nConfigure local git user and global aliases.\n"
+    exit 1
+}
 
-git config --local user.name "lcybrgl"
-git config --local user.email "cybrg@inbox.ru"
+[ ! "$#" == 2 ] && show_usage
+
+git config --local user.name "$1"
+git config --local user.email "$2"
 
 git config --global alias.co checkout
 git config --global alias.br branch
