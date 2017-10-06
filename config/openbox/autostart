@@ -1,0 +1,20 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+compton -b --config ~/.config/compton.conf &
+tint2 &
+## GNOME PolicyKit authentication
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+## Turn off/on System Beep
+xset b off
+## Enable power management
+xfce4-power-manager &
+## XFCE4 Settings
+xfsettingsd &
+## Volume control for systray
+(sleep 2; volumeicon) &
+(sleep 5; nm-applet) &
+# Set background image
+(sleep 3; nitrogen --restore) &
