@@ -48,12 +48,12 @@ do
 case $1 in
 "fonts" )
     echo "Installing fonts..."
-    sudo rsync -arv fonts/* /usr/share/fonts/
+    sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
     sudo fc-cache -f
     ;;
 "vim" )
     echo "Installing vim-plugins..."
-    rsync -ar vim/bundle ~/.vim/
+    rsync -ar vim/bundle ~/.vim/ 1>/dev/null
     ;;
 "dfiles" )
     echo "Installing dotfiles..."
