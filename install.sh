@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
 set -e
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0`
+
+# echo "node: $(program_is_installed node)"
+function program_is_installed {
+    type $1 >/dev/null 2>&1 || { echo "\"${1}\" is installed:    ${red}✘ ${reset}"; exit 1; }
+}
+
 function show_usage()
 {
     echo -e "\nUsage: install.sh [PARAMETER]...\nScript for installing my default dotfiles\nAnd Powerline fonts\n"
@@ -11,6 +20,7 @@ function show_usage()
     echo ""
     exit 1
 }
+
 function syncf()
 {
     for i in "$@"
@@ -25,12 +35,14 @@ function syncf()
     done
 }
 
-
 [ $USER == "root" ] && die "Do NOT run as root!!!"
 [ ! -n "$1" ] && show_usage
+program_is_installed rsync
+program_is_installed fc-cache
+program_is_installed vim
+program_is_installed screen
 
 trap 'echo ""; die "Exiting script..."' SIGINT SIGQUIT SIGTSTP
-
 while [ -n "$1" ]
 do
 case $1 in
