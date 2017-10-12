@@ -50,23 +50,29 @@ case $1 in
     echo "Installing fonts..."
     sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
     sudo fc-cache -f
+    echo -e "Installed Powerline fonts:         ${green}\xE2\x9C\x94${reset}"
     ;;
 "vim" )
     echo "Installing vim-plugins..."
     rsync -ar vim/bundle ~/.vim/ 1>/dev/null
+    echo -e "Installed vim-plugins:             ${green}\xE2\x9C\x94${reset}"
     ;;
 "dfiles" )
     echo "Installing dotfiles..."
     syncf bashrc vimrc screenrc Xresources
+    echo -e "Installed dotfiles:                ${green}\xE2\x9C\x94${reset}"
     ;;
 "all" )
     echo "Installing fonts..."
     sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
     sudo fc-cache -f 1>/dev/null
+    echo -e "Installed Powerline fonts:         ${green}\xE2\x9C\x94${reset}"
     echo "Installing vim-plugins..."
     rsync -arv vim/bundle ~/.vim/ --delete 1>/dev/null
+    echo -e "Installed vim-plugins:             ${green}\xE2\x9C\x94${reset}"
     echo "Installing dotfiles..."
     syncf bashrc vimrc screenrc Xresources
+    echo -e "Installed dotfiles:                ${green}\xE2\x9C\x94${reset}"
     ;;
 * )
     show_usage
