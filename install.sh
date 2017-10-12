@@ -35,14 +35,14 @@ function syncf()
     done
 }
 
-[ $USER == "root" ] && { echo "Do NOT run as root!!!"; exit 1 }
+[ $USER == "root" ] && { echo "Do NOT run as root!!!"; exit 1; }
 [ ! -n "$1" ] && show_usage
 program_is_installed rsync
 program_is_installed fc-cache
 program_is_installed vim
 program_is_installed screen
 
-trap 'echo ""; echo "Exiting script..."; exit 1' SIGINT SIGQUIT SIGTSTP
+trap 'echo ""; echo "Exiting script..."; exit 1;' SIGINT SIGQUIT SIGTSTP
 while [ -n "$1" ]
 do
 case $1 in
