@@ -4,16 +4,8 @@ set -e
 red=`tput setaf 1`
 green=`tput setaf 2`
 reset=`tput sgr0`
-fmt="%-25s%-12s\n"
-mark="\xE2\x9C\x94"
-cross="\u2718"
-
-# echo "node: $(program_is_installed node)"
-#function program_is_installed {
-#    type $1 >/dev/null 2>&1 || { echo -e "\"${1}\" is installed:    ${red} \u2718 ${reset}"; exit 1; }
-#}
-#${green}\xE2\x9C\x94${reset}
-#${red} \u2718 ${reset}
+bld=`tput bold`
+fmt="%-10s%-10s\n"
 
 function program_is_installed()
 {
@@ -21,19 +13,15 @@ function program_is_installed()
     echo ""
     for i in "$@"
     do
-        type $i >/dev/null 2>&1 && echo -e "$i        \u2718" || { echo -e "$i        ${red}\u2718${reset}"; count=$((count+1)); }
+        type $i >/dev/null 2>&1 && printf " $fmt" "$i" "${bld}${green}+${reset}"\
+        || { printf " $fmt" "$i" "${bld}${red}-${reset}"; count=$((count+1)); }
     done
     if [ ! $count == 0 ]
     then
-        echo ""
-        echo "Install needed tools first!!!"
-        echo ""
+        echo -e "\nInstall needed tools first!!!\n"
         exit 1
-    else
-        echo ""
-        echo "All tools are installed"
-        echo ""
     fi
+    echo ""
 }
 
 function show_usage()
@@ -61,15 +49,10 @@ function syncf()
     done
 }
 
-program_is_installed rdsync fc-cache vim screen
-#program_is_installed fc-cache
-#program_is_installed vim
-#program_is_installed screen
-
-exit 1
-
 [ $USER == "root" ] && { echo "Do NOT run as root!!!"; exit 1; }
 [ ! -n "$1" ] && show_usage
+
+program_is_installed rsync fc-cache vim screen
 
 trap 'echo ""; echo "Exiting script..."; exit 1;' SIGINT SIGQUIT SIGTSTP
 while [ -n "$1" ]
