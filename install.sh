@@ -7,7 +7,7 @@ reset=`tput sgr0`
 
 # echo "node: $(program_is_installed node)"
 function program_is_installed {
-    type $1 >/dev/null 2>&1 || { echo "\"${1}\" is installed:    ${red}✘ ${reset}"; exit 1; }
+    type $1 >/dev/null 2>&1 || { echo -e "\"${1}\" is installed:    ${red} \u2718 ${reset}"; exit 1; }
 }
 
 function show_usage()
@@ -35,12 +35,13 @@ function syncf()
     done
 }
 
-[ $USER == "root" ] && { echo "Do NOT run as root!!!"; exit 1; }
-[ ! -n "$1" ] && show_usage
 program_is_installed rsync
 program_is_installed fc-cache
 program_is_installed vim
 program_is_installed screen
+
+[ $USER == "root" ] && { echo "Do NOT run as root!!!"; exit 1; }
+[ ! -n "$1" ] && show_usage
 
 trap 'echo ""; echo "Exiting script..."; exit 1;' SIGINT SIGQUIT SIGTSTP
 while [ -n "$1" ]
