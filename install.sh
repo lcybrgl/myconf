@@ -27,6 +27,7 @@ function program_is_installed()
 function show_usage()
 {
     echo -e "\nUsage: install.sh [PARAMETER]...\nScript for installing my default dotfiles\nAnd Powerline fonts\n"
+    echo -e "check\t--Check if needed tools are installed"
     echo -e "vim\t--Install vim-plugins"
     echo -e "dfiles\t--Install config files"
     echo -e "fonts\t--Install fonts"
@@ -58,6 +59,9 @@ trap 'echo ""; echo "Exiting script..."; exit 1;' SIGINT SIGQUIT SIGTSTP
 while [ -n "$1" ]
 do
 case $1 in
+"check" )
+    echo -e "Just checking"
+    ;;
 "fonts" )
     echo "Installing fonts..."
     sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
