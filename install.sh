@@ -53,14 +53,13 @@ function syncf()
 [ $USER == "root" ] && { echo "Do NOT run as root!!!"; exit 1; }
 [ ! -n "$1" ] && show_usage
 
-program_is_installed rsync fc-cache vim screen
-
 trap 'echo ""; echo "Exiting script..."; exit 1;' SIGINT SIGQUIT SIGTSTP
 while [ -n "$1" ]
 do
 case $1 in
 "check" )
     echo -e "Just checking"
+    program_is_installed rsync fc-cache vim screen
     ;;
 "fonts" )
     echo "Installing fonts..."
@@ -76,6 +75,7 @@ case $1 in
     syncf bashrc vimrc screenrc Xresources
     ;;
 "all" )
+    program_is_installed rsync fc-cache vim screen
     echo "Installing fonts..."
     sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
     sudo fc-cache -f 1>/dev/null
