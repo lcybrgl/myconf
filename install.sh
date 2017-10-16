@@ -5,7 +5,7 @@ red=`tput setaf 1`
 green=`tput setaf 2`
 reset=`tput sgr0`
 bld=`tput bold`
-fmt="%-10s%-10s\n"
+fmt="%-12s%-12s\n"
 
 function program_is_installed()
 {
@@ -28,10 +28,7 @@ function show_usage()
 {
     echo -e "\nUsage: install.sh [PARAMETER]...\nScript for installing my default dotfiles\nAnd Powerline fonts\n"
     echo -e "check\t--Check if needed tools are installed"
-    echo -e "vim\t--Install vim-plugins"
-    echo -e "dfiles\t--Install config files"
-    echo -e "fonts\t--Install fonts"
-    echo -e "all\t--Install vim-plugins, dotfiles and fonts"
+    echo -e "console\t--Install vim-plugins, dotfiles and fonts"
     echo ""
     exit 1
 }
@@ -61,20 +58,7 @@ case $1 in
     echo -e "Just checking"
     program_is_installed rsync fc-cache vim screen
     ;;
-"fonts" )
-    echo "Installing fonts..."
-    sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
-    sudo fc-cache -f
-    ;;
-"vim" )
-    echo "Installing vim-plugins..."
-    rsync -ar vim/bundle ~/.vim/ 1>/dev/null
-    ;;
-"dfiles" )
-    echo "Installing dotfiles..."
-    syncf bashrc vimrc screenrc Xresources
-    ;;
-"all" )
+"console" )
     program_is_installed rsync fc-cache vim screen
     echo "Installing fonts..."
     sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
