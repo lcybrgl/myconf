@@ -6,6 +6,7 @@ green=`tput setaf 2`
 reset=`tput sgr0`
 bld=`tput bold`
 fmt="%-12s%-12s\n"
+backdir=~/dotfiles-`date +%Y%m%d`
 
 function program_is_installed()
 {
@@ -39,7 +40,7 @@ function syncf()
     do
         if [ -f ~/.$i ]
         then
-            cp -a ~/.$i ~/.$i.bak
+            cp -a ~/.$i $backdir/.$i.bak
             rsync dotfiles/$i ~/.$i 1>/dev/null
         else
             rsync dotfiles/$i ~/.$i 1>/dev/null
@@ -66,6 +67,10 @@ case $1 in
     echo "Installing vim-plugins..."
     rsync -arv vim/bundle ~/.vim/ --delete 1>/dev/null
     echo "Installing dotfiles..."
+    if [ ! -d "$backdir" ]
+    then
+        mkdir $backdir
+    fi
     syncf bashrc vimrc screenrc Xresources
     ;;
 * )
