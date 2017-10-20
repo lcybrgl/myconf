@@ -18,11 +18,6 @@ PS1='\[\033[01;32m\]\u@\h:\[\e[m\] \[\e[1;34m\]\W\[\e[m\]\[\e[1;34m\] \$\[\e[m\]
 alias ls='ls --color=auto'
 alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
-alias free='clear && free -m'
-<<<<<<< HEAD
-alias ls='ls --color=auto'
-alias ll='ls $LS_OPTIONS -l'
-alias l='ls $LS_OPTIONS -lA'
 alias showdf='clear && df -Th -x tmpfs -x devtmpfs'
 alias showip='clear && cat /etc/hosts | egrep -v "^#|^\:|\:\:|^[[:space:]]*$"'
 alias rm='rm -i'
@@ -30,11 +25,3 @@ alias cp='cp -i'
 alias mv='mv -i'
 #alias updt='sudo pacman -Suy'
 #alias apl='ansible-playbook'
-=======
-alias showdf='clear && df -Th -x tmpfs -x devtmpfs'
-alias showip='clear && cat /etc/hosts | egrep -v "^#|^\:|\:\:|^[[:space:]]*$"| grep 127.0.'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-
->>>>>>> ee0c0410a4b440e7a1026ce7d7211f27e7a1ac9b
