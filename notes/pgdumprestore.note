@@ -1,0 +1,31 @@
+### DUMPING
+
+# Directory dump
+# The fastest and the smallest type of dump
+pg_dump -U postgres -h 172.24.2.8 -Fd -j 6 dbname -f /home/some-file
+
+# Custom dump
+# Size is equal to Directory dump but slower
+pg_dump -U postgres -h 172.24.2.8 -Fc dbname -f /home/some-file.dump
+
+# Plaintext dump
+# The default, not used by pg_restore, speed is nearly Custom
+# Size is much larger then previous dumps
+pg_dump -U postgres -h 172.24.2.8 -Fp dbname -f /home/some-file.plain
+
+# Tar dump
+# Size is equal to Plaintext dump, the slowest dump version
+pg_dump -U postgres -h 172.24.2.8 -Ft dbname -f /home/some-file.tar
+
+
+### RESTORING
+
+# Directory restore
+# Takes some time
+dbcreate -U postgres dbname
+pg_restore -U postgres -d dbname -j 6 some-dir-dump
+
+# Custom restore
+# Faster than directory
+dbcreate -U postgres dbname
+pg_restore -U postgres -d dbname -j 6 some-file.dump

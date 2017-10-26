@@ -1,0 +1,6 @@
+# to mount smb win share
+mount.cifs //172.24.1.96/path/to/share/ /path/to/dir/ -o username=user
+
+# to mount NFS share
+mount 172.24.2.197:/share/dir /path/to/dir/
+

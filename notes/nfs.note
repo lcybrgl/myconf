@@ -1,0 +1,23 @@
+# NFS packages
+nfs-common
+nfs-kernel-server
+
+# to mount NFS share
+mount 172.24.2.197:/share/dir /path/to/dir/
+
+# /etc/exports example
+/gip/postgres_dumps s-db1-ald(rw,sync,no_subtree_check,no_root_squash)
+/gip/postgres_archives s-db1-ald(rw,sync,no_subtree_check,all_squash,anonuid=112,anongid=118)
+/gip/postgres_dumps s-db2-ald(rw,sync,no_subtree_check,no_root_squash)
+/gip/postgres_archives s-db2-ald(rw,sync,no_subtree_check,all_squash,anonuid=112,anongid=118)
+/gip/gispve3 172.24.1.98(rw,sync,no_subtree_check,no_root_squash)
+/gip/data/tiles s-mapserver(ro,sync,no_subtree_check,no_root_squash)
+/gip/data/sit s-mapserver(rw,sync,no_subtree_check,no_root_squash)
+
+# /etc/fstab example
+s-file-ald:/gip/postgres_dumps  /gip/postgres_dumps     nfs     defaults,_netdev    0   0
+s-file-ald:/gip/postgres_archives /gip/postgres_archives     nfs     defaults,_netdev    0   0
+
+root@s-db1-ald:~# cat /etc/passwd | grep 118
+postgres:x:112:118:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+

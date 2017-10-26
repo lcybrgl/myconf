@@ -1,0 +1,18 @@
+# to extract archive
+tar -zxvf backup.tar.gz
+
+# extract archive to dir
+tar -zxvf backup.tar.gz -C /path/to/dir
+
+# size of unpacked archive
+tar -tzvf backup.tar.gz
+
+# create gziped archive
+tar -cvzf tarballname.tar.gz itemtocompress
+tar -cvzf jpegarchive.tar.gz /path/to/images/*.jpg
+
+t: List the contents of an archive
+v: Verbosely list files processed (display detailed information)
+z: Filter the archive through gzip so that we can open compressed (decompress) .gz tar file
+j: Filter archive through bzip2, use to decompress .bz2 files
+f filename: Use archive file called filename

@@ -1,0 +1,7 @@
+
+# how to split example
+$ split -b 2600M gipdata.tar.gz "gipdata.tar.gz-part-"
+
+# how to join example
+$ cat home.tar.bz2.parta* >backup.tar.gz.joined
+

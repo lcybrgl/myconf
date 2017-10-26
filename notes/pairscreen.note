@@ -1,0 +1,11 @@
+########
+screen -S sessionname
+
+ctrl+a
+:multiuser on
+
+ctrl+a
+:acladd user
+
+screen -x yourusername/sessionname
+

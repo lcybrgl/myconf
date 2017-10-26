@@ -1,0 +1,6 @@
+- Turn on "discard" option on vm hardware settings,
+- reboot vm
+- in vm console:
+# fstrim mount point
+$ fstrim -v /gip
+

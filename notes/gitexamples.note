@@ -1,0 +1,20 @@
+echo "# somefiles" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/lcybrgl/somefiles.git
+git push -u origin master
+
+or
+
+git remote add origin https://github.com/lcybrgl/somefiles.git
+git push -u origin master
+
+--allow-unrelated-histories
+
+# track remote branch
+git branch -u upstream/foo
+
+# checkout remote branch and track
+git co --track origin/gispi
+

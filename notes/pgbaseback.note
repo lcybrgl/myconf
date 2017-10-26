@@ -1,0 +1,19 @@
+
+To backup ---
+pg_basebackup -U postgres --xlog --format=t -D /gip/postgres_archives/`date +%Y%m%d`
+
+We can remove archives older then basebackup
+
+
+
+To restore ---
+cd /gip/postgres_archives/20171127
+tar -xf base.tar -C /gip/postgres/
+
+
+We should also have recovery.conf with
+restore_command = 'cp /gip/postgres_archives/%f "%p"'
+recovery_target_timeline = 'latest'
+
+
+/usr/lib/postgres/9.3/bin/pg_basebackup -X stream -P -R -h s-db1-ald -D /gip/postgres/main
