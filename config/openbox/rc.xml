@@ -364,7 +364,7 @@
     </keybind>
     <keybind key="A-F2">
       <action name="Execute">
-        <command>rofi -show run -modi "run,window,ssh" -location 0 -opacity "75"</command>
+        <command>rofi -show run -modi "run,window,ssh" -terminal xterm -location 0 -opacity "75"</command>
       </action>
     </keybind>
     <keybind key="A-F3">
@@ -402,7 +402,7 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>termite</command>
+        <command>exo-open --launch TerminalEmulator</command>
       </action>
     </keybind>
     <keybind key="W-w">
