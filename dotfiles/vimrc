@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/vim-airline-themes
 set rtp+=~/.vim/bundle/nerdtree
 set rtp+=~/.vim/bundle/vim-surround
 set rtp+=~/.vim/bundle/vim-repeat
+set rtp+=~/.vim/bundle/vim-trailing-whitespace
 
 colorscheme PaperColor
 syntax on
