@@ -17,4 +17,4 @@ git branch -u upstream/foo
 
 # checkout remote branch and track
 git co --track origin/gispi
-
+git co -b gispi origin/gispi
