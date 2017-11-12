@@ -65,7 +65,7 @@ case $1 in
     sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
     sudo fc-cache -f 1>/dev/null
     echo "Installing vim-plugins..."
-    rsync -arv vim/bundle ~/.vim/ --delete 1>/dev/null
+    rsync -arv vim-plugins/bundle ~/.vim/ --delete 1>/dev/null
     echo "Installing dotfiles..."
     if [ ! -d "$backdir" ]
     then
