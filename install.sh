@@ -72,6 +72,7 @@ case $1 in
         mkdir $backdir
     fi
     syncf bashrc vimrc screenrc Xresources
+    xrdb -merge ~/.Xresources
     ;;
 * )
     show_usage
