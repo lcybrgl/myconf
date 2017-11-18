@@ -62,8 +62,8 @@ case $1 in
 "console" )
     program_is_installed rsync fc-cache vim screen
     echo "Installing fonts..."
-    sudo rsync -arv fonts/* /usr/share/fonts/ 1>/dev/null
-    sudo fc-cache -f 1>/dev/null
+    rsync -arv fonts/* ~/.fonts/ 1>/dev/null
+    fc-cache -f ~/.fonts 1>/dev/null
     echo "Installing vim-plugins..."
     rsync -arv vim-plugins/bundle ~/.vim/ --delete 1>/dev/null
     echo "Installing dotfiles..."
