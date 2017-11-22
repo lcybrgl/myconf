@@ -23,26 +23,59 @@ transparency = 0.0
 pseudo_transparency = false
 
 [colors]
-foreground = rgba(255, 255, 255)
-background = rgba(63, 63, 63, 0.9)
-cursor = #1F1F1F
-color0 = #31373a
-color1 = #cc0000
-color2 = #4e9a06
-color3 = #d64937
-color4 = #1793d1
-color5 = #10ea8a
-color6 = #06989a
-color7 = #d2d2d2
-color8 = #555753
-color9 = #ef2929
-color10 = #8ae234
-color11 = #1793d1
-color12 = #1793d1
-color13 = #ad7fa8
-color14 = #34e2e2
-color15 = #ffffff"
-cursor = #839496
+
+foreground      = #eceff1
+foreground_bold = #eceff1
+cursor          = rgba(55, 71, 79)
+background      = rgba(130, 130, 130, 0.85)
+
+# black
+color0  = #263238
+color8  = #37474f
+# red
+color1  = #ff9800
+color9  = #ffa74d
+# green
+color2  = #8bc34a
+color10 = #9ccc65
+# yellow
+color3  = #ffc107
+color11 = #ffa000
+# blue
+color4  = #73bcde
+color12 = #81d4fa
+# magenta
+color5  = #e91e63
+color13 = #ad1457
+# cyan
+color6  = #009688
+color14 = #26a69a
+# white
+color7  = #cfd8dc
+color15 = #eceff1
+
+
+#[colors]
+#foreground = rgba(255, 255, 255)
+#background = rgba(63, 63, 63, 0.9)
+#cursor = #1F1F1F
+#color0 = #31373a
+#color1 = #cc0000
+#color2 = #4e9a06
+#color3 = #d64937
+#color4 = #1793d1
+#color5 = #10ea8a
+#color6 = #06989a
+#color7 = #d2d2d2
+#color8 = #555753
+#color9 = #ef2929
+#color10 = #8ae234
+#color11 = #1793d1
+#color12 = #1793d1
+#color13 = #ad7fa8
+#color14 = #34e2e2
+#color15 = #ffffff"
+#cursor = #839496
 
 [hints]
 foreground = #55FFFF
