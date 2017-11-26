@@ -7,26 +7,46 @@ xterm*saveLines: 20000
 xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
 xterm*termName: xterm-256color
 xterm*eightBitInput: false
-xterm*foreground: black
-xterm*background: white
+!xterm*foreground: black
+!xterm*background: white
+
+xterm*foreground:   #a89984
+xterm*background:   #1d2021
+xterm*cursorColor:  #a89984
+xterm*color0:       #1d2021
+xterm*color8:       #665c54
+xterm*color1:       #fb543f
+xterm*color9:       #fb543f
+xterm*color2:       #95c085
+xterm*color10:      #95c085
+xterm*color3:       #fac03b
+xterm*color11:      #fac03b
+xterm*color4:       #0d6678
+xterm*color12:      #0d6678
+xterm*color5:       #8f4673
+xterm*color13:      #8f4673
+xterm*color6:       #8ba59b
+xterm*color14:      #8ba59b
+xterm*color7:       #a89984
+xterm*color15:      #fdf4c1
 
 !Theme Nine
-xterm*color0:     rgb:00/00/00
-xterm*color1:     rgb:bf/72/76
-xterm*color2:     rgb:86/af/80
-xterm*color3:     rgb:96/8a/38
-xterm*color4:     rgb:36/73/b5
-xterm*color5:     rgb:9a/70/b2
-xterm*color6:     rgb:7a/be/cc
-xterm*color7:     rgb:db/db/db
-xterm*color8:     rgb:66/92/af
-xterm*color9:     rgb:e5/50/5f
-xterm*color10:    rgb:87/bc/87
-xterm*color11:    rgb:e0/d9/5c
-xterm*color12:    rgb:1b/85/d6
-xterm*color13:    rgb:ad/73/ba
-xterm*color14:    rgb:33/8e/aa
-xterm*color15:    rgb:f4/f4/f4
+!xterm*color0:     rgb:00/00/00
+!xterm*color1:     rgb:bf/72/76
+!xterm*color2:     rgb:86/af/80
+!xterm*color3:     rgb:96/8a/38
+!xterm*color4:     rgb:36/73/b5
+!xterm*color5:     rgb:9a/70/b2
+!xterm*color6:     rgb:7a/be/cc
+!xterm*color7:     rgb:db/db/db
+!xterm*color8:     rgb:66/92/af
+!xterm*color9:     rgb:e5/50/5f
+!xterm*color10:    rgb:87/bc/87
+!xterm*color11:    rgb:e0/d9/5c
+!xterm*color12:    rgb:1b/85/d6
+!xterm*color13:    rgb:ad/73/ba
+!xterm*color14:    rgb:33/8e/aa
+!xterm*color15:    rgb:f4/f4/f4
 !xterm*color0:     rgb:00/00/00
 !xterm*color1:     rgb:9e/18/28
 !xterm*color2:     rgb:00/88/00
@@ -52,7 +72,7 @@ rofi.color-window: #3a4c54, #2a373e, #c3c6c8
 rofi.color-normal: #455a64, #fafbfc, #455a64, #00bcd4, #fafbfc
 rofi.color-active: #455a64, #00bcd4, #455a64, #009688, #fdf6e3
 rofi.color-urgent: #455a64, #ff5252, #455a64, #ff5252, #fdf6e3
-rofi.terminal:     xterm
+rofi.terminal:     termite
 rofi.ssh-client:   ssh
 rofi.ssh-command:  {terminal} -e "{ssh-client} {host}"
 
