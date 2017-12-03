@@ -1,0 +1,10 @@
+
+# Creating encrypted flash drive
+
+# sudo fdisk /dev/sdc
+# sudo cryptsetup luksFormat /dev/sdc1
+# sudo cryptsetup luksOpen /dev/sdc1 [luksname]
+# sudo mkfs.ext4 /dev/mapper/[luksname] -L [drive lable]
+# sudo cryptsetup luksClose [luksname]
+
+# Secret flash drive is ready
