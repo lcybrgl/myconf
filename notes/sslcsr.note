@@ -1,0 +1,43 @@
+
+# Generating new Private key and Cert Signing Request(CSR) for Cert Authority(CA)
+openssl req -subj "/C=RU/ST=Example State/L=Location/O=Example Company Name/CN=exampledomain.com" -newkey rsa:2048 -nodes -keyout domain.key -out domain.csr
+
+# Generating new Cert Signing Request from existing Private key
+openssl req -key domain.key -new -out domain.csr
+
+# Generate a CSR from an Existing Certificate and Private Key
+openssl x509 -in domain.crt -signkey domain.key -x509toreq -out domain.csr
+
+# Generate a Self-Signed Certificate
+openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
+
+# Generate a Self-Signed Certificate from an Existing Private Key
+openssl req -key domain.key -new -x509 -days 365 -out domain.crt
+
+# Generate a Self-Signed Certificate from an Existing Private Key and CSR
+openssl x509 -signkey domain.key -in domain.csr -req -days 365 -out domain.crt
+
+## View Certificates
+# Certificate and CSR files are encoded in PEM format, which is not readily human-readable.
+# View CSR Entries
+openssl req -text -noout -verify -in domain.csr
+
+# View Certificate Entries
+openssl x509 -text -noout -in domain.crt
+
+# Verify a Certificate was Signed by a CA
+openssl verify -verbose -CAFile ca.crt domain.crt
+
+## Private Keys
+# Create a Private Key
+openssl genrsa -des3 -out domain.key 2048
+
+# Verify a Private Key
+openssl rsa -check -in domain.key
+
+# Verify a Private Key Matches a Certificate and CSR
+openssl rsa -noout -modulus -in domain.key | openssl md5
+openssl x509 -noout -modulus -in domain.crt | openssl md5
+openssl req -noout -modulus -in domain.csr | openssl md5
+# If the output of each command is identical there is an extremely
+# high probability that the private key, certificate, and CSR are related.
