@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+paclog="/var/log/pacman.log"
+currdate=`date +%Y-%m-%d`
+checkdate=$1
+
+[ -f $paclog ] || { echo "Error: no such file $paclog" && exit 1; }
+if [[ $1 == "" ]]; then
+    egrep "upgraded|installed" $paclog | grep $currdate
+else
+    egrep "upgraded|installed" $paclog | grep $checkdate
+fi
+
