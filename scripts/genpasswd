@@ -1,4 +1,16 @@
 #!/bin/bash
-length=$1
-[ "$length" == "" ] && length=16
-tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${length} | xargs
+
+case $1 in
+"")
+    length=16
+    tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${length} | xargs
+    ;;
+*[0-9]*)
+    length=$1
+    tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${length} | xargs
+    ;;
+*)
+    echo "ERROR: Use a number!"
+    exit 1
+    ;;
+esac
