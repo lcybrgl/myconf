@@ -2,12 +2,30 @@
 
 paclog="/var/log/pacman.log"
 currdate=`date +%Y-%m-%d`
-checkdate=$1
+
+function last_weeks()
+{
+    sdate=`date --date="-${1} weeks" +%Y-%m-%d`
+    awk "/$sdate/,0" $paclog | egrep "upgraded|installed"
+}
+
+function last_days()
+{
+    sdate=`date --date="-${1} days" +%Y-%m-%d`
+    awk "/$sdate/,0" $paclog | egrep "upgraded|installed"
+}
 
 [ -f $paclog ] || { echo "Error: no such file $paclog" && exit 1; }
-if [[ $1 == "" ]]; then
-    egrep "upgraded|installed" $paclog | grep $currdate
-else
-    egrep "upgraded|installed" $paclog | grep $checkdate
-fi
+
+case $1 in
+"-w" )
+    last_weeks $2
+    ;;
+"-d" )
+    last_days $2
+    ;;
+* )
+    awk "/$currdate/,0" $paclog | egrep "upgraded|installed"
+    ;;
+esac
 
