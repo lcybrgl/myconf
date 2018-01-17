@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+#We will save path to backup file in variable
+backupf='/tmp/bckup.txt'
+
+#Next line just prints message
+echo "Shell Script Backup Your Files / Directories Using rsync"
+
+#next line check if entered value is not null, and if null it will reask user to enter Destination Server
+while [ x$desthost = "x" ]; do
+
+#next line prints what userd should enter, and stores entered value to variable with name desthost
+read -p "Destination backup Server : " desthost
+done
+
+#next line check if entered value is not null, and if null it will reask user to enter Destination Path
+while [ x$destpath = "x" ]; do
+
+#next line prints what userd should enter, and stores entered value to variable with name destpath
+read -p "Destination Folder : " destpath
+done
+
+#next line check if entered value is not null, and if null it will reask user to enter password
+while [ x$password = "x" ]; do
+#next line prints what userd should enter, and stores entered value to variable with name password.
+#To hide password we are using -s key
+read -sp "Password : " password
+done
+
+#Next line will start reading backup file line by line
+for line in `cat $backupf`
+
+#and on each line will execute next
+do
+
+echo "Copying $line... "
+/usr/bin/expect << EOD
+set timeout -1
+spawn rsync -ar ${line} ${desthost}:${destpath}
+expect "*?assword:*"
+send "${password}\r"
+expect eof
+EOD
+echo "DONE"
+
+done
