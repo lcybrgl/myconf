@@ -3,7 +3,7 @@
 function show_usage ()
 {
     echo -e "
-Script usage: pgmaster (-d|-s|-c)\n
+Script usage: pgmaster (-d|-s|-r|-c)\n
     -d database_name path_for_dump  -- Dump database
     -s [database_name]              -- Get size of database
     -r [database_name]              -- Show cache hit ratio
