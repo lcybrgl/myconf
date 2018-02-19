@@ -13,8 +13,8 @@ highlight = #2f2f2f
 icon_name = terminal
 modify_other_keys = false
 mouse_autohide = false
-scroll_on_output = false
-scroll_on_keystroke = false
+scroll_on_output = true
+scroll_on_keystroke = true
 scrollback_lines = 15000
 size_hints = false
 search_wrap = true
@@ -23,44 +23,86 @@ transparency = 0.0
 pseudo_transparency = false
 #background = rgba(255, 255, 255, 0.9)
 
-[colors]
-# Base16 Darktooth
-# Author: Jason Milkins (https://github.com/jasonm23)
-foreground      = #A89984
-foreground_bold = #D5C4A1
-cursor          = #D5C4A1
-background      = #1D2021
-# 16 color space
-# Black, Gray, Silver, White
-color0  = #1D2021
-color8  = #665C54
-color7  = #A89984
-color15 = #FDF4C1
-# Red
-color1  = #FB543F
-color9  = #FB543F
-# Green
-color2  = #95C085
-color10 = #95C085
-# Yellow
-color3  = #FAC03B
-color11 = #FAC03B
-# Blue
-color4  = #0D6678
-color12 = #0D6678
-# Purple
-color5  = #8F4673
-color13 = #8F4673
-# Teal
-color6  = #8BA59B
-color14 = #8BA59B
-# Extra colors
-color16 = #FE8625
-color17 = #A87322
-color18 = #32302F
-color19 = #504945
-color20 = #928374
-color21 = #D5C4A1
+## bright scheme
+#[colors]
+## special
+#foreground      = #494848
+#foreground_bold = #494848
+#cursor          = #494848
+#background      = rgba(243, 243, 243, 0.9)
+#
+## black
+#color0  = #494848
+#color8  = #494848
+#
+## red
+#color1  = #ef6b7b
+#color9  = #ed5466
+#
+## green
+#color2  = #a1d569
+#color10 = #afdb80
+#
+## yellow
+#color3  = #f59335
+#color11 = #f59335
+#
+## blue
+#color4  = #4ec2e8
+#color12 = #5dc7ea
+#
+## magenta
+#color5  = #fec7cd
+#color13 = #d2a4b4
+#
+## cyan
+#color6  = #95c1c0
+#color14 = #75a1a0
+#
+## white
+#color7  = #707070
+#color15 = #494848
+
+## My default
+#[colors]
+## Base16 Darktooth
+## Author: Jason Milkins (https://github.com/jasonm23)
+#foreground      = #A89984
+#foreground_bold = #D5C4A1
+#cursor          = #D5C4A1
+#background      = rgba(29, 32, 33, 0.9)
+##background      = #1D2021
+## 16 color space
+## Black, Gray, Silver, White
+#color0  = #1D2021
+#color8  = #665C54
+#color7  = #A89984
+#color15 = #FDF4C1
+## Red
+#color1  = #FB543F
+#color9  = #FB543F
+## Green
+#color2  = #95C085
+#color10 = #95C085
+## Yellow
+#color3  = #FAC03B
+#color11 = #FAC03B
+## Blue
+#color4  = #0D6678
+#color12 = #0D6678
+## Purple
+#color5  = #8F4673
+#color13 = #8F4673
+## Teal
+#color6  = #8BA59B
+#color14 = #8BA59B
+## Extra colors
+#color16 = #FE8625
+#color17 = #A87322
+#color18 = #32302F
+#color19 = #504945
+#color20 = #928374
+#color21 = #D5C4A1
 
 #[colors]
 ## Base16 Default Light
@@ -218,44 +260,44 @@ color21 = #D5C4A1
 #color20 = #9a99a3
 #color21 = #dbdde0
 
-#[colors]
-## Base16 Pop
-## Author: Chris Kempson (http://chriskempson.com)
-#foreground      = #0b0c0e
-#foreground_bold = #e0e0e0
-#cursor          = #0b0c0e
-#background = rgba(255, 255, 255, 0.9)
-## 16 color space
-## Black, Gray, Silver, White
-#color0  = #000000
-#color8  = #505050
-#color7  = #d0d0d0
-#color15 = #ffffff
-## Red
-#color1  = #eb008a
-#color9  = #eb008a
-## Green
-#color2  = #37b349
-#color10 = #37b349
-## Yellow
-#color3  = #f8ca12
-#color11 = #f8ca12
-## Blue
-#color4  = #0e5a94
-#color12 = #0e5a94
-## Purple
-#color5  = #b31e8d
-#color13 = #b31e8d
-## Teal
-#color6  = #00aabb
-#color14 = #00aabb
-## Extra colors
-#color16 = #f29333
-#color17 = #7a2d00
-#color18 = #202020
-#color19 = #303030
-#color20 = #b0b0b0
-#color21 = #e0e0e0
+[colors]
+# Base16 Pop
+# Author: Chris Kempson (http://chriskempson.com)
+foreground      = #0b0c0e
+foreground_bold = #e0e0e0
+cursor          = #0b0c0e
+background = rgba(255, 255, 255, 0.9)
+# 16 color space
+# Black, Gray, Silver, White
+color0  = #000000
+color8  = #505050
+color7  = #d0d0d0
+color15 = #ffffff
+# Red
+color1  = #eb008a
+color9  = #eb008a
+# Green
+color2  = #37b349
+color10 = #37b349
+# Yellow
+color3  = #f8ca12
+color11 = #f8ca12
+# Blue
+color4  = #0e5a94
+color12 = #0e5a94
+# Purple
+color5  = #b31e8d
+color13 = #b31e8d
+# Teal
+color6  = #00aabb
+color14 = #00aabb
+# Extra colors
+color16 = #f29333
+color17 = #7a2d00
+color18 = #202020
+color19 = #303030
+color20 = #b0b0b0
+color21 = #e0e0e0
 
 #[colors]
 ## Base16 Railscasts
@@ -295,7 +337,7 @@ color21 = #D5C4A1
 #color19 = #3a4055
 #color20 = #d4cfc9
 #color21 = #f4f1ed
-
+#
 [hints]
 #foreground = #55FFFF
 #font = Monospace 12
