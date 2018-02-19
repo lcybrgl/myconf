@@ -13,12 +13,15 @@ highlight = #2f2f2f
 icon_name = terminal
 modify_other_keys = false
 mouse_autohide = false
-scroll_on_output = false
+scroll_on_output = true
 scroll_on_keystroke = true
 scrollback_lines = 15000
 size_hints = false
 search_wrap = true
 urgent_on_bell = true
+transparency = 0.0
+pseudo_transparency = false
+#background = rgba(255, 255, 255, 0.9)
 
 [hints]
 #font = Monospace 12
