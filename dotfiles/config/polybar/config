@@ -84,7 +84,7 @@ font-3 = Droid Sans Fallback:size=10;1
 
 modules-left = i3
 modules-center = date
-modules-right = musicinfo
+;modules-right = musicinfo
 
 tray-position = right
 tray-padding = 9

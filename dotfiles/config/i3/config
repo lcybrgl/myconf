@@ -64,10 +64,10 @@ set $rofi-command "rofi -show run -modi \\"run,window,ssh\\" -location 0 -opacit
 
 
 #This is setup for qwerty
-set $up l
-set $down k
-set $left j
-set $right semicolon
+set $up k
+set $down j
+set $left h
+set $right l
 
 #This is setup for azerty
 #set $up l
@@ -279,7 +279,7 @@ for_window [urgent=latest] focus
 default_orientation horizontal
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -405,9 +405,6 @@ for_window [class="Spotify"] move to workspace 10
 #####################################################################################################################
 
 # USER APPLICATIONS TO START AT BOOT
-exec /home/cybrg/.screenlayout/vboxscreen.sh
-exec sleep 2
-exec nitrogen --restore
 
 #browser
 #exec --no-startup-id vivaldi-stable
@@ -469,7 +466,7 @@ exec --no-startup-id volumeicon
 #exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 #Polybar
-exec --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #####################################################################################################################
 #################                                 system applications                               #################
