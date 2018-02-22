@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+function show_usage ()
+{
+    echo -e "
+Script usage: btfup <remote_hostname> <remote_dir> <local_dir>\n"
+    exit 1
+}
+
+function check_conn ()
+{
+    ping -c 1 $1 >& /dev/null
+    if [ ! $? == 0 ]
+    then
+        echo "Connection error: $1"
+        exit 1
+    fi
+
+    nc -z $1 22
+    if [ ! $? == 0 ]
+    then
+        echo "Port is closed on server: $1"
+        exit 1
+    fi
+}
+
+[ $# -ne 3 ] && show_usage
+
+remotesrv=$1
+remotedir=$2
+localdir=$3
+
+check_conn $remotesrv
+
+rsync -arv $remotesrv:$remotedir/* $localdir/ >& $localdir/`date +%Y-%m-%d`-error.log
+if [ ! $? == 0 ]
+then
+    echo "Error, check error.log in local_dir"
+    exit 1
+fi
+rm -f $localdir/`date +%Y-%m-%d`-error.log
+
+exit 0

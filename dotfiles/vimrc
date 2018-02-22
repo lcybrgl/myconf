@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vim-colorschemes
+set rtp+=~/.vim/bundle/awesome-vim-colorschemes
 set rtp+=~/.vim/bundle/vim-airline
 set rtp+=~/.vim/bundle/vim-airline-themes
 set rtp+=~/.vim/bundle/nerdtree
@@ -8,7 +9,9 @@ set rtp+=~/.vim/bundle/vim-surround
 set rtp+=~/.vim/bundle/vim-repeat
 set rtp+=~/.vim/bundle/vim-trailing-whitespace
 
-colorscheme PaperColor
+"colorscheme PaperColor
+colorscheme termschool
+set background=light
 syntax on
 filetype indent on
 filetype plugin on
@@ -45,7 +48,6 @@ highlight lCursor guifg=NONE guibg=Cyan
 highlight NonText ctermbg=none
 """"
 set t_Co=256
-set background=light
 set autoread
 set shortmess=I
 set wildmenu

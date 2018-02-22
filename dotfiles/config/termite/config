@@ -7,7 +7,7 @@ cursor_blink = system
 cursor_shape = block
 dynamic_title = true
 filter_unmatched_urls = true
-font = Monospace 13
+font = DroidSansMono 12
 geometry = 900x650
 highlight = #2f2f2f
 icon_name = terminal
@@ -37,40 +37,41 @@ pseudo_transparency = false
 [colors]
 
 # special
-foreground      = #ffffff
-foreground_bold = #ffffff
-cursor          = #ffffff
-background      = rgba(19, 19, 19, 0.8)
+foreground      = #e6e1dc
+foreground_bold = #e6e1dc
+cursor          = #e6e1dc
+#background      = #2b2b2b
+background = rgba(23, 29, 35, 0.9)
 
 # black
-color0  = #666666
-color8  = #999999
+color0  = #2b2b2b
+color8  = #5a647e
 
 # red
-color1  = #cc6666
-color9  = #ff9999
+color1  = #da4939
+color9  = #da4939
 
 # green
-color2  = #66cc99
-color10 = #99ffcc
+color2  = #a5c261
+color10 = #a5c261
 
 # yellow
-color3  = #cc9966
-color11 = #ffcc99
+color3  = #ffc66d
+color11 = #ffc66d
 
 # blue
-color4  = #6699cc
-color12 = #99ccff
+color4  = #6d9cbe
+color12 = #6d9cbe
 
 # magenta
-color5  = #cc6699
-color13 = #ff99cc
+color5  = #b6b3eb
+color13 = #b6b3eb
 
 # cyan
-color6  = #66cccc
-color14 = #99ffff
+color6  = #519f50
+color14 = #519f50
 
 # white
-color7  = #cccccc
-color15 = #ffffff
+color7  = #e6e1dc
+color15 = #f9f7f3
 
