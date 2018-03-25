@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# Date    : 22/09/2017
-# Version : v5.6.0
 
 case "$1" in
     lock)

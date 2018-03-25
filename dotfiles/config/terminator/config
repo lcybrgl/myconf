@@ -1,11 +1,8 @@
 [global_config]
   borderless = True
-  homogeneous_tabbar = False
-  scroll_tabbar = True
-  title_font = Monospace 13
-  title_transmit_bg_color = "#000000"
-  title_use_system_font = False
-  window_state = maximise
+  tab_position = hidden
+  title_receive_bg_color = "#c80003"
+  title_transmit_bg_color = "#3465a4"
 [keybindings]
 [layouts]
   [[default]]
@@ -14,18 +11,14 @@
       type = Terminal
     [[[window0]]]
       parent = ""
-      size = 900, 600
       type = Window
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#ffffff"
-    background_darkness = 0.71
-    cursor_color = "#c5c8c6"
-    font = D2Coding for Powerline 13
-    foreground_color = "#000000"
-    icon_bell = False
-    scrollback_lines = 15000
+    background_darkness = 0.9
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Go Mono for Powerline 12
+    scrollback_infinite = True
     scrollbar_position = hidden
-    show_titlebar = False
     use_system_font = False

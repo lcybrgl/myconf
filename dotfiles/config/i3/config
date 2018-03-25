@@ -1,31 +1,9 @@
-##
-set_from_resource	  $color15_i3wmthemer	    color15
-set_from_resource	  $color14_i3wmthemer	    color14
-set_from_resource	  $color13_i3wmthemer	    color13
-set_from_resource	  $color12_i3wmthemer	    color12
-set_from_resource	  $color11_i3wmthemer	    color11
-set_from_resource	  $color10_i3wmthemer	    color10
-set_from_resource	  $color09_i3wmthemer		  color9
-set_from_resource	  $color08_i3wmthemer		  color8
-set_from_resource	  $color07_i3wmthemer		  color7
-set_from_resource 	$color06_i3wmthemer		  color6
-set_from_resource 	$color05_i3wmthemer 	    color5
-set_from_resource 	$color04_i3wmthemer 	    color4
-set_from_resource 	$color03_i3wmthemer 	    color3
-set_from_resource 	$color02_i3wmthemer 	    color2
-set_from_resource 	$color01_i3wmthemer 	    color1
-set_from_resource	  $color00_i3wmthemer		  color0
-set_from_resource	  $foreground_i3wmthemer	foreground
-set_from_resource	  $background_i3wmthemer	background
-
 #####################################################################################################################
 #####################################################################################################################
 #################                          Start of all the settings                                #################
 #####################################################################################################################
 #####################################################################################################################
 
-# Date    : 16/01/2018
-# Version : v6.2.8
 
 # KEY DEFINITIONS TO REMEMBER
 
@@ -54,7 +32,6 @@ set_from_resource	  $background_i3wmthemer	background
 
 #set Super key
 set $mod Mod4
-set $rofi-command "rofi -show run -modi \\"run,window,ssh\\" -location 0 -opacity \\"75\\""
 
 
 
@@ -64,10 +41,16 @@ set $rofi-command "rofi -show run -modi \\"run,window,ssh\\" -location 0 -opacit
 
 
 #This is setup for qwerty
+#set $up l
+#set $down k
+#set $left j
+#set $right semicolon
+
 set $up k
 set $down j
 set $left h
-set $right l
+#set $right l
+
 
 #This is setup for azerty
 #set $up l
@@ -87,7 +70,8 @@ set $right l
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
 exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
-
+exec --no-startup-id $HOME/.screenlayout/default.sh
+exec --no-startup-id sleep 2 && nitrogen --restore
 
 # my current setup
 set $firstMonitor HDMI1
@@ -145,19 +129,16 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 #####################################################################################################################
 #################                          3 menu's in ArchMerge                                     #################
 #####################################################################################################################
+set $rofi-command "rofi -show run -modi \\"run,window,ssh\\" -location 0 -opacity \\"75\\""
 
+# start dmenu
+bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
-# gmrun
-#bindsym mod1+F2 exec --no-startup-id gmrun
+# rofi
+bindsym mod1+F2 exec --no-startup-id $rofi-command
 
-# start rofi full  -- ROFI IS NOT INSTALLED
-bindsym mod1+F2 exec $rofi-command
-#-width 100
-
-# start rofi small  -- ROFI IS NOT INSTALLED
-#bindsym $mod+F12 exec --no-startup-id rofi -show run -font "Noto Sans 13"
-
-
+# start xfce-appfinder
+bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
 
 #####################################################################################################################
 #################                          how to exit, logoff, suspend, ...                        #################
@@ -365,21 +346,20 @@ font pango:Noto Mono Regular 13
 # you can find the class with the program xprop
 
 # Workspace 1 browser related
+assign [class="Terminator|Termite"]                      → 1
 
 # Workspace 2 text editor related
-assign [class="Chromium|Google-chrome"]                                             → 2
 assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"]                      → 2
 
 # Workspace 3 Inkscape
-assign [class="Inkscape"]                                                           → 3
-assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 3
-assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 3
+assign [class="Inkscape|TelegramDesktop|telegram-desktop"]                          → 3
 
 # Workspace 4 Gimp
+assign [class="Gimp"]                                                               → 4
 
 # Workspace 5 Images and meld
-assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
-assign [class="Meld"]                                                               → 5
+assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
+assign [class="keepassx2|Keepassx2"]             → 5
 
 # Workspace 6 all video related software
 assign [class="Vlc|vlc"]                                                            → 6
@@ -388,6 +368,7 @@ assign [class="Vlc|vlc"]                                                        
 assign [class="Vmplayer|VirtualBox"]						    → 7
 
 # Workspace 8 file managers
+assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 8
 
 # Workspace 9 email clients
 assign [class="Geary|Evolution"]                                                    → 9
@@ -405,26 +386,10 @@ for_window [class="Spotify"] move to workspace 10
 #####################################################################################################################
 
 # USER APPLICATIONS TO START AT BOOT
-
-#browser
-#exec --no-startup-id vivaldi-stable
-#for_window [class="Vivaldi-stable"] focus
-
-#text-editor
-#exec --no-startup-id geany
-#exec --no-startup-id atom
-
-#file manager
-#exec --no-startup-id thunar
-
-#Mail clients
-#exec --no-startup-id evolution
-
-#Music
-#exec --no-startup-id spotify
-for_window [class="Spotify"] focus
-
-
+exec --no-startup-id firefox
+exec --no-startup-id terminator
+exec --no-startup-id sleep 5 && megasync
+exec --no-startup-id sleep 5 && telegram-desktop
 
 # TRAY APPLICATIONS
 
@@ -456,17 +421,8 @@ exec_always --no-startup-id numlockx on
 #exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
 
-#variety
-#exec --no-startup-id variety
-
-# clipman
-#exec --no-startup-id xfce4-clipman
-
-#Conky
-#exec --no-startup-id conky -c ~/.config/i3/system-overview
-
 #Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+#exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -478,6 +434,7 @@ exec --no-startup-id xfce4-power-manager &
 # activate again if errors occurr
 #exec --no-startup-id xfsettingsd &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #####################################################################################################################
 #################                          applications keyboard shortcuts                          #################
@@ -486,8 +443,9 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 #not workspace related
 
 # terminal
-bindsym $mod+Return exec --no-startup-id termite;focus
-bindsym control+mod1+t exec --no-startup-id termite; focus
+bindsym $mod+Return exec --no-startup-id terminator;focus
+#bindsym control+mod1+t exec --no-startup-id termite; focus
+#bindsym control+mod1+Return exec --no-startup-id termite; focus
 
 #System monitor
 bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
@@ -503,10 +461,8 @@ bindsym control+mod1+c exec --no-startup-id catfish;focus
 #bindsym $mod+k exec slimlock
 #use super + X to get to slimlock
 
-#rofi theme selector  -- ROFI IS NOT INSTALLED
-#ArchMerge conflict
-#bindsym $mod+r exec rofi-theme-selector
-#bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
+#rofi theme selector
+bindsym control+mod1+r exec --no-startup-id rofi-theme-selector
 
 #deadbeef or lollypop
 #ArchMerge conflict
@@ -538,8 +494,19 @@ bindsym control+mod1+g exec --no-startup-id chromium;workspace 1;focus
 
 #workspace 2 related
 #bindsym $mod+F2 exec --no-startup-id geany;workspace 2;focus
+bindsym $mod+F2 exec --no-startup-id atom;workspace 2;focus
 bindsym control+mod1+w exec --no-startup-id geany;workspace 2;focus
+
+#workspace 3 related
+bindsym $mod+F3 exec --no-startup-id inkscape;workspace 3;focus
+
+#workspace 4 related
+bindsym $mod+F4 exec --no-startup-id gimp;workspace 4;focus
+
+#workspace 5 related
+bindsym $mod+F5 exec --no-startup-id meld;workspace 5;focus
 bindsym control+mod1+i exec --no-startup-id nitrogen;workspace 5;focus
+
 #workspace 6 related
 bindsym $mod+F6 exec --no-startup-id vlc;workspace 6;focus
 
@@ -655,19 +622,19 @@ for_window [class="Terminator"] focus
 
 #Variety keybindings mod1 = ALT
 # trash wallpaper
-bindsym mod1+t exec --no-startup-id variety -t
-# next wallpaper
-bindsym mod1+n exec --no-startup-id variety -n
-bindsym mod1+Right exec --no-startup-id variety -n
-# previous wallpaper
-bindsym mod1+p exec --no-startup-id variety -p
-bindsym mod1+Left exec --no-startup-id variety -p
-# favorite wallpaper
-bindsym mod1+f exec --no-startup-id variety -f
-# pause wallpaper
-bindsym mod1+Up exec --no-startup-id variety --pause
-# resume wallpaper
-bindsym mod1+Down exec --no-startup-id variety --resume
+#bindsym mod1+t exec --no-startup-id variety -t
+## next wallpaper
+#bindsym mod1+n exec --no-startup-id variety -n
+#bindsym mod1+Right exec --no-startup-id variety -n
+## previous wallpaper
+#bindsym mod1+p exec --no-startup-id variety -p
+#bindsym mod1+Left exec --no-startup-id variety -p
+## favorite wallpaper
+#bindsym mod1+f exec --no-startup-id variety -f
+## pause wallpaper
+#bindsym mod1+Up exec --no-startup-id variety --pause
+## resume wallpaper
+#bindsym mod1+Down exec --no-startup-id variety --resume
 
 
 
@@ -838,7 +805,7 @@ exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
 #    font pango:Noto Sans 14
 #
 #    #position top
-#    position bottom
+#    position top
 #
 #    #tray_output $firstMonitor
 #    #tray_output $secondMonitor
@@ -892,6 +859,17 @@ exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
 #        }
 #
 #    }
+
+
+# DarkGrey background with white text - not focus grey background - black text
+# Windows decoration colors
+# class                 border  backgr. text    indicator
+client.placeholder      #242424 #242424 #242424
+client.background       #242424 #242424 #242424
+client.focused          #4A4A4A #4A4A4A #e5e5e5 #4A4A4A
+client.unfocused        #222222 #222222 #aaaaaa #222222
+client.focused_inactive #222222 #222222 #a9a9a9 #222222
+client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 
 
 #################################################################

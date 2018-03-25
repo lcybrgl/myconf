@@ -1,1 +1,0 @@
-conky -c ~/.conkyrc & sleep 1s
