@@ -11,10 +11,8 @@ backdir=~/dotfiles-bak
 function show_usage()
 {
     echo -e "\nUsage: install.sh [PARAMETER]...\nScript for installing my default dotfiles\nAnd Powerline fonts\n"
-    echo -e "all\t--Install fonts, dotfiles, vim plugins"
-    echo -e "dfiles\t--Install only dotfiles"
-    echo -e "vim\t--Install only vim plugins"
-    echo -e "fonts\t--Install fonts to local user dir"
+    echo -e "rc\t-- Install bashrc, screenrc"
+    echo -e "vim\t-- Install vim plugins, fonts, vimrc"
     echo ""
     exit 1
 }
@@ -70,34 +68,33 @@ program_is_installed rsync fc-cache vim screen
 while [ -n "$1" ]
 do
 case $1 in
-"all" )
-    echo -n "Installing fonts..."
-    rsync -arv fonts/* ~/.fonts/ 1>/dev/null
-    fc-cache -f ~/.fonts 1>/dev/null
-    echo " ${bld}${green}+${reset}"
-    echo -n "Installing vim-plugins..."
-    rsync -arv vim-plugins/bundle ~/.vim/ --delete 1>/dev/null
-    echo " ${bld}${green}+${reset}"
-    echo -n "Installing dotfiles..."
-    syncf bashrc vimrc screenrc Xresources
-    xrdb -merge ~/.Xresources
-    echo " ${bld}${green}+${reset}"
-    ;;
-"dfiles" )
-    echo -n "Installing dotfiles..."
-    syncf bashrc vimrc screenrc Xresources
-    xrdb -merge ~/.Xresources
-    echo " ${bld}${green}+${reset}"
-    ;;
-"fonts" )
-    echo -n "Installing fonts..."
-    rsync -arv fonts/* ~/.fonts/ 1>/dev/null
-    fc-cache -f ~/.fonts 1>/dev/null
+#"all" )
+#    echo -n "Installing fonts..."
+#    rsync -arv fonts/* ~/.fonts/ 1>/dev/null
+#    fc-cache -f ~/.fonts 1>/dev/null
+#    echo " ${bld}${green}+${reset}"
+#    echo -n "Installing vim..."
+#    rsync -arv vim-plugins/bundle ~/.vim/ --delete 1>/dev/null
+#    echo " ${bld}${green}+${reset}"
+#    echo -n "Installing rcfiles..."
+#    syncf bashrc vimrc screenrc Xresources
+#    xrdb -merge ~/.Xresources
+#    echo " ${bld}${green}+${reset}"
+#    ;;
+"rc" )
+    echo -n "Installing rcfiles..."
+    syncf bashrc screenrc
+    source ~/.bashrc
     echo " ${bld}${green}+${reset}"
     ;;
 "vim" )
     echo -n "Installing vim-plugins..."
     rsync -arv vim-plugins/bundle ~/.vim/ --delete 1>/dev/null
+    echo " ${bld}${green}+${reset}"
+    echo -n "Installing Powerline fonts..."
+    rsync -arv fonts/* ~/.fonts/ 1>/dev/null
+    fc-cache -f ~/.fonts 1>/dev/null
+    syncf vimrc
     echo " ${bld}${green}+${reset}"
     ;;
 * )
