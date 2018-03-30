@@ -17,7 +17,6 @@
 # Print = PRINT key
 # Tab = TAB key
 
-
 #####################################################################################################################
 #################                          Define the $mod variable/key                             #################
 #####################################################################################################################
@@ -26,44 +25,23 @@
 
 # Mod4 = Windows or Super key on keyboard
 # Mod1 = Alt key on keyboard
-
 #Set Alt key
 #set $mod Mod1
-
 #set Super key
 set $mod Mod4
-
-
 
 #####################################################################################################################
 #################                          Define the movements keys - variables                    #################
 #####################################################################################################################
-
-
-#This is setup for qwerty
-#set $up l
-#set $down k
-#set $left j
-#set $right semicolon
 
 set $up k
 set $down j
 set $left h
 #set $right l
 
-
-#This is setup for azerty
-#set $up l
-#set $down k
-#set $left j
-#set $right m
-
-
-
 #####################################################################################################################
 #################                          Single and Dual screen                                   #################
 #####################################################################################################################
-
 
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
@@ -76,18 +54,6 @@ exec --no-startup-id sleep 2 && nitrogen --restore
 # my current setup
 set $firstMonitor HDMI1
 set $secondMonitor HDMI2
-
-#set $firstMonitor LVDS1
-#set $secondMonitor LVDS1
-
-#set $firstMonitor DVI-I-2
-#set $secondMonitor VGA-0
-
-#set $firstMonitor DVI-I-2
-#set $secondMonitor DVI-I-3
-
-#set $firstMonitor DVI-0
-#set $secondMonitor DVI-1
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
@@ -124,8 +90,6 @@ bindsym $mod+Shift+8 move container to workspace 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
-
-
 #####################################################################################################################
 #################                          3 menu's in ArchMerge                                     #################
 #####################################################################################################################
@@ -144,10 +108,8 @@ bindsym mod1+F3 exec --no-startup-id xfce4-appfinder
 #################                          how to exit, logoff, suspend, ...                        #################
 #####################################################################################################################
 
-
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
 
 #Press $mod (super) and X to exit - check toolbar for next choices
 bindsym $mod+X mode "$mode_system"
@@ -166,21 +128,15 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-
-
 #####################################################################################################################
 #################                          reload changed configuration                             #################
 #####################################################################################################################
-
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-
-
-
 
 #####################################################################################################################
 #################                          Stopping an application                                  #################
@@ -189,13 +145,9 @@ bindsym $mod+Shift+c reload
 # kill focused window
 bindsym $mod+Shift+q kill
 
-
-
-
 #####################################################################################################################
 #################                          Moving around in i3                                      #################
 #####################################################################################################################
-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -227,13 +179,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-
-
-
 #####################################################################################################################
 #################                          moving around workspaces                                 #################
 #####################################################################################################################
-
 
 # next/previous workspace
 
@@ -247,10 +195,6 @@ bindsym Mod1+Ctrl+Left workspace prev
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
-
-
-
-
 
 #####################################################################################################################
 #################                          Tiling parameters                                        #################
@@ -285,14 +229,9 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-
-
-
-
 #####################################################################################################################
 #################                          resize                                                   #################
 #####################################################################################################################
-
 
 # resize window (you can also use the mouse for that)
 
@@ -321,10 +260,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-
-
-
-
 #####################################################################################################################
 #################                          choose the font                                          #################
 #####################################################################################################################
@@ -334,10 +269,6 @@ mode "resize" {
 # choose your font
 font pango:Noto Mono Regular 13
 
-
-
-
-
 #####################################################################################################################
 #################                          assign applications to workspaces                       #################
 #####################################################################################################################
@@ -346,7 +277,7 @@ font pango:Noto Mono Regular 13
 # you can find the class with the program xprop
 
 # Workspace 1 browser related
-assign [class="Terminator|Termite"]                      → 1
+assign [class="Terminator|Termite"]                                                 → 1
 
 # Workspace 2 text editor related
 assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"]                      → 2
@@ -359,13 +290,13 @@ assign [class="Gimp"]                                                           
 
 # Workspace 5 Images and meld
 assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
-assign [class="keepassx2|Keepassx2"]             → 5
+assign [class="keepassx2|Keepassx2"]                                                → 5
 
 # Workspace 6 all video related software
 assign [class="Vlc|vlc"]                                                            → 6
 
 # Workspace 7 virtual machines and settings
-assign [class="Vmplayer|VirtualBox"]						    → 7
+assign [class="Vmplayer|VirtualBox"]                                                → 7
 
 # Workspace 8 file managers
 assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 8
@@ -377,9 +308,6 @@ assign [class="Geary|Evolution"]                                                
 assign [class="Spotify|spotify"]                                                    → 10
 #fix for spotify not moving to workspace 10
 for_window [class="Spotify"] move to workspace 10
-
-
-
 
 #####################################################################################################################
 #################                          execute applications at boot time                        #################
@@ -420,9 +348,6 @@ exec_always --no-startup-id numlockx on
 # volume
 #exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
-
-#Polybar
-#exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -480,8 +405,6 @@ bindsym control+mod1+u exec --no-startup-id pavucontrol
 #ArchMerge does not seem to work
 bindsym control+mod1+a exec --no-startup-id xfce4-appfinder
 
-
-
 #workspace related
 
 #workspace 1 related
@@ -529,30 +452,19 @@ bindsym control+mod1+e exec --no-startup-id evolution;workspace 9;focus
 bindsym $mod+F10 exec --no-startup-id spotify;workspace 10;focus
 bindsym control+mod1+s exec --no-startup-id spotify;workspace 10;focus
 
-
-
-
 #####################################################################################################################
 #################                          screenshots                                              #################
 #####################################################################################################################
 
-
 bindsym Print exec --no-startup-id scrot 'ArchMerge-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 bindsym Control+Print exec --no-startup-id xfce4-screenshooter
 bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
-#bindsym shift+Print exec --no-startup-id shutter
-
-
-
-
 
 #####################################################################################################################
 #################                          floating or tiled                                        #################
 #####################################################################################################################
 
-
 #floating enabled from some programs - find with xprop
-
 for_window [class="Bleachbit"] floating disable
 for_window [class="Blueberry.py"] floating enable
 for_window [class="Brasero"] floating disable
@@ -563,7 +475,7 @@ for_window [class="^Gpick$"] floating enable
 for_window [class="Hexchat"] floating disable
 for_window [class="Imagewriter"] floating enable
 for_window [class="Font-manager"] floating enable
-#for_window [class="qt5ct|Lxappearance] floating enable
+for_window [class="qt5ct|Lxappearance"] floating enable
 for_window [class="Nitrogen"] floating disable
 for_window [class="Pavucontrol"] floating disable
 for_window [class="Peek"] floating enable
@@ -579,66 +491,23 @@ for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="Xfce4-settings-manager"] floating disable
 for_window [class="Xfce4-taskmanager"] floating enable
 
-
-#for_window [instance="gimp"] floating disable
 for_window [instance="script-fu"] border normal
 for_window [instance="variety"] floating disable
-
 
 for_window [title="Copying"] floating enable
 for_window [title="Deleting"] floating enable
 for_window [title="Moving"] floating enable
 for_window [title="^Terminator Preferences$"] floating enable
 
-
-#for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable
-
-
-
-
-
 
 #####################################################################################################################
 #################                          give focus to applications                               #################
 #####################################################################################################################
 
-
-for_window [class="Gnome-terminal"] focus
 for_window [class="Termite"] focus
-for_window [class="Terminator"] focus
-
-
-
-
-
-
-#####################################################################################################################
-#################                          variety for your wallpapers                              #################
-#####################################################################################################################
-
-
-#Variety keybindings mod1 = ALT
-# trash wallpaper
-#bindsym mod1+t exec --no-startup-id variety -t
-## next wallpaper
-#bindsym mod1+n exec --no-startup-id variety -n
-#bindsym mod1+Right exec --no-startup-id variety -n
-## previous wallpaper
-#bindsym mod1+p exec --no-startup-id variety -p
-#bindsym mod1+Left exec --no-startup-id variety -p
-## favorite wallpaper
-#bindsym mod1+f exec --no-startup-id variety -f
-## pause wallpaper
-#bindsym mod1+Up exec --no-startup-id variety --pause
-## resume wallpaper
-#bindsym mod1+Down exec --no-startup-id variety --resume
-
-
-
-
 
 #####################################################################################################################
 #################                          audio settings                                           #################
@@ -724,9 +593,9 @@ popup_during_fullscreen smart
 # want it
 
 
-for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
+for_window [class="^.*"] border pixel 3
+gaps inner 9
+gaps outer 9
 #smart_gaps on
 #smart_borders on
 
@@ -864,12 +733,19 @@ exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
 # DarkGrey background with white text - not focus grey background - black text
 # Windows decoration colors
 # class                 border  backgr. text    indicator
-client.placeholder      #242424 #242424 #242424
-client.background       #242424 #242424 #242424
-client.focused          #4A4A4A #4A4A4A #e5e5e5 #4A4A4A
-client.unfocused        #222222 #222222 #aaaaaa #222222
-client.focused_inactive #222222 #222222 #a9a9a9 #222222
-client.urgent           #d42121 #d42121 #f7f7f7 #d42121
+# client.placeholder      #242424 #242424 #242424
+# client.background       #242424 #242424 #242424
+# client.focused          #4A4A4A #4A4A4A #e5e5e5 #4A4A4A
+# client.unfocused        #222222 #222222 #aaaaaa #222222
+# client.focused_inactive #222222 #222222 #a9a9a9 #222222
+# client.urgent           #d42121 #d42121 #f7f7f7 #d42121
+
+client.placeholder      #62a8e7 #62a8e7 #62a8e7
+client.background       #62a8e7 #62a8e7 #62a8e7
+client.focused          #62a8e7 #62a8e7 #62a8e7
+client.unfocused        #62a8e7 #62a8e7 #62a8e7
+client.focused_inactive #62a8e7 #62a8e7 #62a8e7
+client.urgent           #62a8e7 #62a8e7 #62a8e7
 
 
 #################################################################
@@ -878,7 +754,7 @@ client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 
 # Orange background with black text - not focus grey background - white text
 # Windows decoration colors
-# class                   border  backgr. text    indicator
+#class                   border  backgr. text    indicator
 # client.background color         #222222
 # client.focused          #FFAF00 #FFAF00 #333333 #00AA00
 # client.unfocused        #222222 #222222 #aaaaaa #2e9ef4
