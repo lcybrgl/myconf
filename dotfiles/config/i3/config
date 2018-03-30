@@ -387,7 +387,7 @@ for_window [class="Spotify"] move to workspace 10
 
 # USER APPLICATIONS TO START AT BOOT
 exec --no-startup-id firefox
-exec --no-startup-id terminator
+exec --no-startup-id termite
 exec --no-startup-id sleep 5 && megasync
 exec --no-startup-id sleep 5 && telegram-desktop
 
@@ -443,7 +443,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 #not workspace related
 
 # terminal
-bindsym $mod+Return exec --no-startup-id terminator;focus
+bindsym $mod+Return exec --no-startup-id termite;focus
 #bindsym control+mod1+t exec --no-startup-id termite; focus
 #bindsym control+mod1+Return exec --no-startup-id termite; focus
 
