@@ -13,7 +13,6 @@ colorscheme PaperColor
 set background=light
 """" Misc
 "set backspace=indent,eol,start
-let g:vimwiki_list = [{'path': '~/.wiki/'}]
 set clipboard=unnamed
 """" Leader Shortcuts
 let mapleader="'"
@@ -21,9 +20,11 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-noremap bl :bnext!<cr>
-noremap bh :bprev!<cr>
-noremap <leader>b :bdelete!<cr>
+"""" Some mappings
+nmap bl :bnext!<cr>
+nmap bh :bprev!<cr>
+nmap <leader>b :bdelete!<cr>
+nmap <leader>nn :e ~/.vimrc<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>q :q!<cr>
 nmap <leader>a :NERDTree<cr>
@@ -42,7 +43,7 @@ set shiftwidth=4
 set modelines=1
 filetype indent on
 filetype plugin on
-set autoindent
+"set autoindent
 set list listchars=tab:»·,trail:· " show extra space characters
 """"
 set t_Co=256
@@ -79,7 +80,7 @@ let g:airline_theme='papercolor'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+"nnoremap W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 if &term =~ '256color'
 " disable Background Color Erase (BCE) so that color schemes
