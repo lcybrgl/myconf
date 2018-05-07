@@ -20,7 +20,7 @@ select 2
 #
 hardstatus on
 hardstatus alwayslastline
-hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}]%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}[%{B}%m/%d %{W}%C%A%{g}]'
+hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}]%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}[%{B} %d/%m %{W}%c %A %{g}]'
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 activity              "activity in %n (%t) [%w:%s]~"
 bell                  "bell     in %n (%t) [%w:%s]~"
