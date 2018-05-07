@@ -94,7 +94,6 @@ case $1 in
     echo -n "Installing Powerline fonts..."
     rsync -arv fonts/* ~/.fonts/ 1>/dev/null
     fc-cache -f ~/.fonts 1>/dev/null
-    syncf vimrc
     echo " ${bld}${green}+${reset}"
     ;;
 * )
