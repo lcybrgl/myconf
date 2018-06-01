@@ -1,5 +1,8 @@
 #!/bin/bash
 
+slavedb=eshp-eom-db-2
+datapath="/var/lib/pgsql/10/data"
+
 if [ $# != 1 ]
 then
         echo -e "
@@ -12,11 +15,11 @@ fi
 case $1 in
     start|-s)
         echo "Startig PG Base Backup"
-        psql -U postgres -c "SELECT pg_start_backup('label', true)" > sql.log
+        psql -U postgres -h 127.0.0.1 -c "SELECT pg_start_backup('label', true)" > sql.log
         sleep 2
-        rsync -a /gip/postgres/* s-db2-ald:/gip/postgres/ --exclude postmaster.pid --progress 2>&1 | tee rsync.log
+        rsync -a $datapath/* $slavedb:$datapath/ --exclude postmaster.pid --progress 2>&1 | tee rsync.log
         sleep 2
-        psql -U postgres -c "SELECT pg_stop_backup()" >> sql.log
+        psql -U postgres -h 127.0.0.1 -c "SELECT pg_stop_backup()" >> sql.log
         ;;
     *)
         echo "Exiting..."
