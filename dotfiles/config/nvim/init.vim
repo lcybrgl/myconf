@@ -6,12 +6,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'jiangmiao/auto-pairs'
-Plug 'altercation/vim-colors-solarized'
 call plug#end()
 syntax enable
-colorscheme PaperColor
-"set background=dark
+"colorscheme PaperColor
+colorscheme OceanicNext
+set background=dark
 """" Misc
 "set backspace=indent,eol,start
 set clipboard=unnamed
@@ -27,7 +26,8 @@ noremap <leader>b :bdelete!<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>q :q!<cr>
 nmap <leader>a :NERDTree<cr>
-map <leader>s :source ~/.vimrc<CR>
+nmap <leader>r :NERDTreeClose<cr>
+map <leader>s :source ~/.config/nvim/init.vim<CR>
 " Russian input support
 "set keymap=russian-jcukenwin
 set iminsert=0
@@ -75,9 +75,9 @@ set noswapfile
 set nowritebackup
 set viminfo=
 """ Airline config
-let g:airline_theme='papercolor'
+"let g:airline_theme='papercolor'
+let g:airline_theme='cool'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 au VimLeave * :!clear
