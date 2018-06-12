@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo "low" | sudo tee /sys/class/drm/card0/device/power_profile
+if [ ! $# == 0 ]
+then
+    echo "Fucked up"
+else
+    echo "Profile changed"
+fi
+
