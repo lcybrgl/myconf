@@ -1,0 +1,8 @@
+systemctl disable iscsid.socket
+systemctl disable iscsid.service
+systemctl stop iscsid.socket
+systemctl stop iscsid.service
+systemctl stop iscsi.service
+InitiatorName=iqn.2018-04.ru.eprosv:app2-1
+iscsiadm -m node --op delete -T iqn.2018-04.ru.eprosv:storage.target1
+iscsiadm -m discovery -t st -p 192.168.88.132 192.168.88.132:3260,1 iqn.2018-04.ru.eprosv:app2-1
