@@ -2,6 +2,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
+Plug 'wolf-dog/nighted.vim'
+Plug 'Heorhiy/VisualStudioDark.vim'
+Plug 'nightsense/vim-crunchbang'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -9,21 +12,12 @@ Plug 'bronson/vim-trailing-whitespace'
 call plug#end()
 
 hi Normal guibg=NONE ctermbg=NONE
-"let t:is_transparent = 0
-"function! Toggle_transparent()
-"    if t:is_transparent == 0
-"        hi Normal guibg=NONE ctermbg=NONE
-"        let t:is_transparent = 1
-"    else
-"        set background=dark
-"        let t:is_tranparent = 0
-"    endif
-"endfunction
-"nnoremap <C-t> : call Toggle_transparent()<CR>
-
 syntax enable
 "colorscheme PaperColor
-colorscheme OceanicNext
+"colorscheme OceanicNext
+"colorscheme nighted
+"colorscheme VisualStudioDark
+colorscheme crunchbang
 set background=dark
 """" Misc
 "set backspace=indent,eol,start
@@ -60,6 +54,7 @@ set autoindent
 set list listchars=tab:»·,trail:· " show extra space characters
 """"
 set t_Co=256
+set termguicolors
 set autoread
 set shortmess=I
 set wildmenu
