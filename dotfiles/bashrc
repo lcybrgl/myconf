@@ -1,7 +1,7 @@
 # ~/.bashrc
 
 export BROWSER=/usr/bin/firefox
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export HISTFILESIZE=-1
 export HISTSIZE=-1
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -31,5 +31,5 @@ alias showip='clear && cat /etc/hosts | egrep -v "^#|^\:|\:\:|^[[:space:]]*$"'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias updt='sudo pacman -Suy'
+alias updt='sudo pacman -Suy --noconfirm'
 #alias apl='ansible-playbook'

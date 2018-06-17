@@ -16,8 +16,7 @@ syntax enable
 "colorscheme PaperColor
 "colorscheme OceanicNext
 "colorscheme nighted
-"colorscheme VisualStudioDark
-colorscheme crunchbang
+colorscheme VisualStudioDark
 set background=dark
 """" Misc
 "set backspace=indent,eol,start
@@ -53,8 +52,7 @@ filetype plugin on
 set autoindent
 set list listchars=tab:»·,trail:· " show extra space characters
 """"
-set t_Co=256
-set termguicolors
+"set termguicolors
 set autoread
 set shortmess=I
 set wildmenu
@@ -76,8 +74,6 @@ set foldcolumn=1
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
-set t_vb=
-set tm=500
 """ Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
