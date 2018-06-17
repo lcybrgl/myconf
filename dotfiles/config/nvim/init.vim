@@ -7,6 +7,20 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'bronson/vim-trailing-whitespace'
 call plug#end()
+
+hi Normal guibg=NONE ctermbg=NONE
+"let t:is_transparent = 0
+"function! Toggle_transparent()
+"    if t:is_transparent == 0
+"        hi Normal guibg=NONE ctermbg=NONE
+"        let t:is_transparent = 1
+"    else
+"        set background=dark
+"        let t:is_tranparent = 0
+"    endif
+"endfunction
+"nnoremap <C-t> : call Toggle_transparent()<CR>
+
 syntax enable
 "colorscheme PaperColor
 colorscheme OceanicNext
@@ -26,7 +40,7 @@ noremap <leader>b :bdelete!<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>q :q!<cr>
 nmap <leader>a :NERDTree<cr>
-nmap <leader>r :NERDTreeClose<cr>
+nmap <leader>r :NERDTreeToggle<cr>
 map <leader>s :source ~/.config/nvim/init.vim<CR>
 " Russian input support
 "set keymap=russian-jcukenwin
@@ -60,6 +74,7 @@ set number
 set ruler
 set notimeout ttimeout ttimeoutlen=200
 set showmatch
+set nohlsearch
 set encoding=utf8
 " Add a bit extra margin to the left
 set foldcolumn=1
