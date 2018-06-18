@@ -34,12 +34,12 @@ alias mv='mv -i'
 alias updt='sudo pacman -Suy --noconfirm'
 alias apl='ansible-playbook'
 alias vim='nvim'
-alias sn='screen -S'  # sn for screen new
-alias sl='screen -ls' # sl for screen list
-alias sr='screen -x'  # sr for screen resume
-function sk() {
-  # sk for screen kill
-  # function instead of alias because the order of the parameters matters
-  screen -S "$1" -X quit
-}
+#alias sn='screen -S'  # sn for screen new
+#alias sl='screen -ls' # sl for screen list
+#alias sr='screen -x'  # sr for screen resume
+#function sk() {
+#  # sk for screen kill
+#  # function instead of alias because the order of the parameters matters
+#  screen -S "$1" -X quit
+#}
 
