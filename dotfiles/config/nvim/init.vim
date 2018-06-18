@@ -4,22 +4,22 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'wolf-dog/nighted.vim'
 Plug 'Heorhiy/VisualStudioDark.vim'
-Plug 'nightsense/vim-crunchbang'
+Plug 'hzchirs/vim-material'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'bronson/vim-trailing-whitespace'
 call plug#end()
-
 hi Normal guibg=NONE ctermbg=NONE
 syntax enable
 "colorscheme PaperColor
 "colorscheme OceanicNext
 "colorscheme nighted
-colorscheme VisualStudioDark
+"colorscheme VisualStudioDark
+colorscheme vim-material
 set background=dark
 """" Misc
-"set backspace=indent,eol,start
+set backspace=indent,eol,start
 set clipboard=unnamed
 """" Leader Shortcuts
 let mapleader="'"
@@ -52,7 +52,7 @@ filetype plugin on
 set autoindent
 set list listchars=tab:»·,trail:· " show extra space characters
 """"
-"set termguicolors
+set termguicolors
 set autoread
 set shortmess=I
 set wildmenu
