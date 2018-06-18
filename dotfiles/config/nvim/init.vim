@@ -2,14 +2,21 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
+Plug 'wolf-dog/nighted.vim'
+Plug 'Heorhiy/VisualStudioDark.vim'
+Plug 'nightsense/vim-crunchbang'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'bronson/vim-trailing-whitespace'
 call plug#end()
+
+hi Normal guibg=NONE ctermbg=NONE
 syntax enable
 "colorscheme PaperColor
-colorscheme OceanicNext
+"colorscheme OceanicNext
+"colorscheme nighted
+colorscheme VisualStudioDark
 set background=dark
 """" Misc
 "set backspace=indent,eol,start
@@ -26,7 +33,7 @@ noremap <leader>b :bdelete!<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>q :q!<cr>
 nmap <leader>a :NERDTree<cr>
-nmap <leader>r :NERDTreeClose<cr>
+nmap <leader>r :NERDTreeToggle<cr>
 map <leader>s :source ~/.config/nvim/init.vim<CR>
 " Russian input support
 "set keymap=russian-jcukenwin
@@ -45,7 +52,7 @@ filetype plugin on
 set autoindent
 set list listchars=tab:»·,trail:· " show extra space characters
 """"
-set t_Co=256
+"set termguicolors
 set autoread
 set shortmess=I
 set wildmenu
@@ -60,14 +67,13 @@ set number
 set ruler
 set notimeout ttimeout ttimeoutlen=200
 set showmatch
+set nohlsearch
 set encoding=utf8
 " Add a bit extra margin to the left
 set foldcolumn=1
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
-set t_vb=
-set tm=500
 """ Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb

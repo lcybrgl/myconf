@@ -1,4 +1,4 @@
-#]##########################################################
+############################################################
 term "screen-256color"
 defscrollback         4000            # default: 100
 silencewait           15              # default: 30
@@ -12,7 +12,7 @@ bind c screen 1
 bind ^c screen 1
 bind 0 select 10
 #
-screen -t VIM               1 vim
+screen -t VIM               1 nvim
 screen -t LOCAL             2
 screen -t LOCAL             3
 screen -t HTOP              10 htop
